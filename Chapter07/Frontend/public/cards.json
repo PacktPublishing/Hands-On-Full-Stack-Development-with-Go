@@ -1,0 +1,43 @@
+[{
+    "id" : 1,
+    "img" : "img/strings.png",
+    "imgalt":"string",
+    "desc":"A very authentic and beautiful instrument!!",
+    "price" : 100.0,
+    "productname" : "Strings"
+}, {
+    "id" : 2,
+    "img" : "img/redguitar.jpeg",
+    "imgalt":"redg",
+    "desc":"A really cool red guitar that can produce super cool music!!",
+    "price" : 299.0,
+    "productname" : "Red Guitar"
+},{
+    "id" : 3,
+    "img" : "img/drums.jpg",
+    "imgalt":"drums",
+    "desc":"A set of super awesome drums, combined with a guitar, they can product more than amazing music!!",
+    "price" : 17000.0,
+    "productname" : "Drums"
+},{
+    "id" : 4,
+    "img" : "img/flute.jpeg",
+    "imgalt":"flute",
+    "desc":"A super nice flute combined with some super nice musical notes!!",
+    "price" : 210.0,
+    "productname" : "Flute"
+},{
+    "id" : 5,
+    "img" : "img/blackguitar.jpeg",
+    "imgalt":"Black guitar",
+    "desc":"An awesome guitar that will product amazing sound!!",
+    "price" : 200.0,
+    "productname" : "Black Guitar"
+},{
+    "id" : 6,
+    "img" : "img/saxophone.jpeg",
+    "imgalt":"Saxophone",
+    "desc":"An great saxophone for a great musician!!",
+    "price" : 1000.0,
+    "productname" : "Saxophone"
+}]
