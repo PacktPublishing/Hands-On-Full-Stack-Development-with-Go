@@ -7,6 +7,8 @@ import (
 func RunAPI(address string) error {
 	//Get gin's default engine
 	r := gin.Default()
+	//Define a handler
+	h, _ := NewHandler()
 	//load homepage
 	r.GET("/", h.GetMainPage)
 	//get products

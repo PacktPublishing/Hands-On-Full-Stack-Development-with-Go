@@ -1,8 +1,8 @@
 package dblayer
 
 import (
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/Chapter06/backend/src/models"
 	"github.com/jinzhu/gorm"
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/5-RESTFul-API/backend/src/models"
 )
 
 //get products
