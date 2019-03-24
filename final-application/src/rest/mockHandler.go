@@ -7,7 +7,7 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/final-application/src/models"
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/final-application/src/models"
 )
 
 /*

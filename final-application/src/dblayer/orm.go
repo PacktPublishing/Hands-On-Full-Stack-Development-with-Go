@@ -5,7 +5,7 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/final-application/src/models"
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/final-application/src/models"
 	"golang.org/x/crypto/bcrypt"
 )
 

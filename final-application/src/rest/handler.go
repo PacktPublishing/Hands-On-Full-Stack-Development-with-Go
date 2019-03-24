@@ -7,8 +7,8 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/final-application/src/dblayer"
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/final-application/src/models"
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/final-application/src/dblayer"
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/final-application/src/models"
 	"github.com/stripe/stripe-go"
 	"github.com/stripe/stripe-go/charge"
 	"github.com/stripe/stripe-go/customer"
