@@ -3,7 +3,7 @@
 package main
 
 import (
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/9-Isomorphic-Go/reactproject/hello_message"
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/Chapter09/reactproject/hello_message"
 	"myitcv.io/react"
 )
 
