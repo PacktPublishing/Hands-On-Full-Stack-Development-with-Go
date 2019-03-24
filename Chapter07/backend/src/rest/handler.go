@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/Chapter07/backend/src/dblayer"
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/Chapter07/backend/src/models"
 	"github.com/gin-gonic/gin"
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/6-ADVANCED-WEB/backend/src/dblayer"
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/6-ADVANCED-WEB/backend/src/models"
 )
 
 type Handler struct {
