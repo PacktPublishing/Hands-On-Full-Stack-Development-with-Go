@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/Chapter08/backend/src/dblayer"
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/Chapter08/backend/src/models"
 	"github.com/gin-gonic/gin"
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/7-Testing-and-benchmarking/backend/src/dblayer"
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/7-Testing-and-benchmarking/backend/src/models"
 	"github.com/stripe/stripe-go"
 	"github.com/stripe/stripe-go/charge"
 	"github.com/stripe/stripe-go/customer"

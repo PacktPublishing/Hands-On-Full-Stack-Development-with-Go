@@ -3,9 +3,9 @@ package dblayer
 import (
 	"errors"
 
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/Chapter08/backend/src/models"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/7-Testing-and-benchmarking/backend/src/models"
 	"golang.org/x/crypto/bcrypt"
 )
 

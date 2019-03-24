@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/7-Testing-and-benchmarking/backend/src/rest"
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/Chapter08/backend/src/rest"
 )
 
 func main() {

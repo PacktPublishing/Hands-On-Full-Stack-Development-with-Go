@@ -3,7 +3,7 @@ package dblayer
 import (
 	"errors"
 
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/7-Testing-and-benchmarking/backend/src/models"
+	"github.com/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/Chapter08/backend/src/models"
 )
 
 type DBLayer interface {

@@ -9,8 +9,8 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/7-Testing-and-benchmarking/backend/src/dblayer"
-	"github.com/minaandrawos/Hands-On-Full-Stack-Development-with-Go/7-Testing-and-benchmarking/backend/src/models"
+	"github.com/minaandrawos/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/Chapter08/backend/src/dblayer"
+	"github.com/minaandrawos/PacktPublishing/Hands-On-Full-Stack-Development-with-Go/Chapter08/backend/src/models"
 )
 
 func TestHandler_GetProducts(t *testing.T) {
