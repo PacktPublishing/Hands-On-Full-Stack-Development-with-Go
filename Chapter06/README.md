@@ -1,3 +1,3 @@
-Chapter 5: RESTFul APIs
+Chapter 6: RESTFul APIs
 
-This folder contains the backend and front end files for chapter 5.
+This folder contains the backend and front end files for chapter 6.
