@@ -1,46 +1,38 @@
 import React from 'react';
 import CreditCardInformation from './CreditCards';
-import cookie from "react-cookie";
+import cookie from 'js-cookie';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+
+function submitRequest(path, requestBody, handleSignedIn,handleError) {
+    fetch(path, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody)
+    }).then(response => response.json())
+      .then(json => {
+            console.log("Response received...")
+            if (json.error === undefined || !json.error) {
+                //save cookie if not error
+                console.log("Sign in Success...");
+                cookie.set("user", json);
+                handleSignedIn(json);
+            } else {
+                handleError(json.error);
+            }
+        })
+        .catch(error=>console.log(error));
+}
 
 
 class SingInForm extends React.Component {
     constructor(props) {
         super(props);
-        /*
-        this.user = {
-            "name": "Mina",
-            "loggedin": true,
-            "orders": [
-                {
-                    "id" : 1,
-                    "img" : "img/img-small/strings.png",
-                    "imgalt":"string",
-                    "desc":"A very authentic and beautiful instrument!!",
-                    "price" : 100.0,
-                    "productname" : "Strings",
-                    "days": 32
-                }, {
-                    "id" : 2,
-                    "img" : "img/img-small/redguitar.jpeg",
-                    "imgalt":"redg",
-                    "desc":"A really cool red guitar that can produce super cool music!!",
-                    "price" : 299.0,
-                    "productname" : "Red Guitar",
-                    "days": 99
-                },{
-                    "id" : 3,
-                    "img" : "img/img-small/drums.jpg",
-                    "imgalt":"drums",
-                    "desc":"A set of super awesome drums, combined with a guitar, they can product more than amazing music!!",
-                    "price" : 17000.0,
-                    "productname" : "Drums",
-                    "days": 45
-                }
-            ]
-        };
-        */
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleError = this.handleError.bind(this);
         this.state = {
             errormessage: ''
         }
@@ -54,25 +46,16 @@ class SingInForm extends React.Component {
         });
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        fetch('users/signin', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(this.state)
-        }).then(response => response.json())
-        .then(json => {
-            if(json.error === undefined){
-               //save cookie if not error
-                console.log("Sign in Success...");
-                cookie.save("loggedin",true);
-              //  cookie.save("user",this.user);
-            }
+    handleError(error){
+        this.setState({
+            errormessage: error
         });
-        console.log(JSON.stringify(this.state));
+    }
+
+    handleSubmit(event) {
+        //'users/signin'
+        event.preventDefault();
+        submitRequest('users/signin', this.state, this.props.handleSignedIn,this.handleError);
     }
 
 
@@ -97,10 +80,10 @@ class SingInForm extends React.Component {
                     </div>
                     <div className="form-row text-center">
                         <div className="col-12 mt-2">
-                            <button type="submit" className="btn btn-success btn-large">Sign In</button>
+                            <button type="submit" className="btn btn-success btn-large" >Sign In</button>
                         </div>
                         <div className="col-12 mt-2">
-                            <button type="submit" className="btn btn-link text-info" onClick={() => this.props.handleNewUser()}> New User? Register</button>
+                            <button className="btn btn-link text-info" onClick={() => this.props.handleNewUser()}> New User? Register</button>
                         </div>
                     </div>
                 </form>
@@ -110,7 +93,7 @@ class SingInForm extends React.Component {
 
 }
 
-class RegisterationForm extends React.Component {
+class RegistrationForm extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -119,6 +102,7 @@ class RegisterationForm extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleError = this.handleError.bind(this);
     }
 
     handleChange(event) {
@@ -129,12 +113,18 @@ class RegisterationForm extends React.Component {
             [name]: value
         });
     }
+    
+    handleError(error){
+        this.setState({
+            errormessage: error
+        });
+    }
 
     handleSubmit(event) {
         event.preventDefault();
         const userInfo = this.state;
         const firstlastname = userInfo.username.split(" ");
-        if(userInfo.pass1 !== userInfo.pass2){
+        if (userInfo.pass1 !== userInfo.pass2) {
             alert("PASSWORDS DO NOT MATCH");
             return;
         }
@@ -144,35 +134,21 @@ class RegisterationForm extends React.Component {
             email: userInfo.email,
             password: userInfo.pass1
         };
-        fetch('users', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(requestBody)
-        }).then(response => response.json())
-        .then(json => {
-            if(json.error === undefined){                
-               //save cookie if not error
-               console.log("Add user Success...");
-               cookie.save("loggedin",true);
-            }
-        });
-        console.log(requestBody);
+        submitRequest('users', requestBody, this.props.handleSignedIn,this.handleError);
+        
+        console.log("Registration form: " + requestBody);
     }
 
     render() {
         let message = null;
         if (this.state.errormessage.length !== 0) {
             message = <h5 className="mb-4 text-danger">{this.state.errormessage}</h5>;
-
         }
         return (
             <div>
                 {message}
                 <form onSubmit={this.handleSubmit}>
-                    <h5 className="mb-4">Registeration</h5>
+                    <h5 className="mb-4">Registration</h5>
                     <div className="form-group">
                         <label htmlFor="username">User Name:</label>
                         <input id="username" name='username' className="form-control" placeholder='John Doe' type='text' onChange={this.handleChange} />
@@ -208,55 +184,54 @@ export class SignInModalWindow extends React.Component {
             showRegistrationForm: false
         };
         this.handleNewUser = this.handleNewUser.bind(this);
+        this.handleModalClose = this.handleModalClose.bind(this);
     }
 
     handleNewUser() {
         this.setState({
-            showRegistrationForm: true
+          showRegistrationForm: true
         });
     }
 
+    handleModalClose(){
+        this.setState({
+            showRegistrationForm: false
+        });
+    }
+   
+
     render() {
-        let modalBody = <SingInForm handleNewUser={this.handleNewUser} />
+        let modalBody = <SingInForm handleNewUser={this.handleNewUser} handleSignedIn={this.props.handleSignedIn} />
         if (this.state.showRegistrationForm === true) {
-            modalBody = <RegisterationForm />
+            modalBody = <RegistrationForm handleSignedIn={this.props.handleSignedIn} />
         }
         return (
-            <div className="modal fade" id="register" tabIndex="-1" role="dialog" aria-labelledby="Register Form" aria-hidden="true">
-                <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header bg-success text-white">
-                            <h5 className="modal-title" id="exampleModalLabel">Sign in</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            {modalBody}
-                        </div>
-                    </div>
+            <Modal id="register" tabIndex="-1" role="dialog" isOpen={this.props.showModal} toggle={this.props.toggle} onClosed={this.handleModalClose}>
+                <div role="document">
+                    <ModalHeader toggle={this.props.toggle} className="bg-success text-white">
+                        Sign in
+                    </ModalHeader>
+                    <ModalBody>
+                        {modalBody}
+                    </ModalBody>
                 </div>
-            </div>
+            </Modal>
         );
     }
 }
 
 export function BuyModalWindow(props) {
     return (
-        <div className="modal fade" id="buy" tabIndex="-1" role="dialog" aria-labelledby="Register Form" aria-hidden="true">
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <div className="modal-header bg-success text-white">
-                        <h5 className="modal-title">Buy Item</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div className="modal-body">
-                        <CreditCardInformation seperator={false} show={true} operation="Charge" />
-                    </div>
+        <Modal id="buy" tabIndex="-1" role="dialog" isOpen={props.showModal} toggle={props.toggle}>
+            <div role="document">
+                    <ModalHeader toggle={props.toggle} className="bg-success text-white">
+                        Buy Item
+                    </ModalHeader>
+                    <ModalBody>
+                        <CreditCardInformation user={props.user} seperator={false} show={true} productid={props.productid} price={props.price} operation="Charge" toggle={props.toggle} />
+                    </ModalBody>
                 </div>
-            </div>
-        </div>
+                      
+        </Modal>
     );
 } 
