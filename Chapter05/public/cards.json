@@ -37,7 +37,7 @@
     "id" : 6,
     "img" : "img/saxophone.jpeg",
     "imgalt":"Saxophone",
-    "desc":"An great saxophone for a great musician!!",
+    "desc":"A great saxophone for a great musician!!",
     "price" : 1000.0,
     "productname" : "Saxophone"
 }]

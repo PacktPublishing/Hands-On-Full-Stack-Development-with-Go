@@ -63,8 +63,8 @@ class CreditCardForm extends React.Component {
     renderSuccess() {
         return (
             <div>
-                <h5 className="mb-4 text-success">Request Successfull....</h5>
-                <button type="submit" className="btn btn-success btn-large" data-dismiss="modal">Ok</button>
+                <h5 className="mb-4 text-success">Credit card payment processed.....</h5>
+                <button type="submit" className="btn btn-success btn-large" onClick={() => { this.props.toggle() }}>Ok</button>
             </div>
         );
     }

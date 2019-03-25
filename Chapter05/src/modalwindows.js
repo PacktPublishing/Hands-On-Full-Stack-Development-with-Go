@@ -1,5 +1,7 @@
 import React from 'react';
 import CreditCardInformation from './CreditCards';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+
 
 class SingInForm extends React.Component {
     constructor(props) {
@@ -59,7 +61,7 @@ class SingInForm extends React.Component {
 
 }
 
-class RegisterationForm extends React.Component {
+class RegistrationForm extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -94,7 +96,7 @@ class RegisterationForm extends React.Component {
             <div>
                 {message}
                 <form onSubmit={this.handleSubmit}>
-                    <h5 className="mb-4">Registeration</h5>
+                    <h5 className="mb-4">Registration</h5>
                     <div className="form-group">
                         <label htmlFor="username">User Name:</label>
                         <input id="username" name='username' className="form-control" placeholder='John Doe' type='text'  onChange={this.handleChange} />
@@ -143,44 +145,37 @@ export class SignInModalWindow extends React.Component {
     render() {
         let modalBody = <SingInForm handleNewUser={this.handleNewUser} />
         if (this.state.showRegistrationForm === true) {
-            modalBody = <RegisterationForm />
+            modalBody = <RegistrationForm />
         }
         return (
-            <div className="modal fade" id="register" tabIndex="-1" role="dialog" aria-labelledby="Register Form" aria-hidden="true">
-                <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header bg-success text-white">
-                            <h5 className="modal-title" id="exampleModalLabel">Sign in</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            {modalBody}
-                        </div>
-                    </div>
-                </div>
+            <Modal id="register" tabIndex="-1" role="dialog" isOpen={this.props.showModal} toggle={this.props.toggle}>
+            <div role="document">
+                <ModalHeader toggle={this.props.toggle} className="bg-success text-white">
+                    Sign in
+                    {/*<button className="close">
+                        <span aria-hidden="true">&times;</span>
+                     </button>*/}
+                </ModalHeader>
+                <ModalBody>
+                    {modalBody}
+                </ModalBody>
             </div>
+        </Modal>
         );
     }
 }
 
 export function BuyModalWindow(props) {
     return (
-        <div className="modal fade" id="buy" tabIndex="-1" role="dialog" aria-labelledby="Register Form" aria-hidden="true">
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <div className="modal-header bg-success text-white">
-                        <h5 className="modal-title">Buy Item</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div className="modal-body">
-                        <CreditCardInformation seperator={false} show={true} operation="Charge" />
-                    </div>
-                </div>
+        <Modal id="buy" tabIndex="-1" role="dialog" isOpen={props.showModal} toggle={props.toggle}>
+        <div role="document">
+                <ModalHeader toggle={props.toggle} className="bg-success text-white">
+                    Buy Item
+                </ModalHeader>
+                <ModalBody>
+                    <CreditCardInformation user={props.user} seperator={false} show={true} productid={props.productid} price={props.price} operation="Charge" toggle={props.toggle} />
+                </ModalBody>
             </div>
-        </div>
+        </Modal>
     );
 } 

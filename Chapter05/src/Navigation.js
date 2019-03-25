@@ -28,7 +28,7 @@ export default class Navigation extends React.Component {
                             this.props.user.loggedin ?
                                 /*<p className="navbar-brand order-1 text-white my-auto">Welcome {this.props.user.name}</p>*/
                                 this.buildLoggedInMenu()
-                                : <button type="button" className="navbar-brand order-1 btn btn-success" data-toggle="modal" data-target="#register">Sign in</button>
+                                : <button type="button" className="navbar-brand order-1 btn btn-success"  onClick={() => { this.props.showModalWindow();}}>Sign in</button>
                         }
                         <div className="navbar-collapse" id="navbarNavAltMarkup">
                             <div className="navbar-nav">

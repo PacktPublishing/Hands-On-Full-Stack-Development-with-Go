@@ -14,15 +14,44 @@ class App extends React.Component {
     this.state = {
       user: {
         loggedin: false,
-        name: ""
+        name: "",
       }
     };
+    this.showSignInModalWindow = this.showSignInModalWindow.bind(this);
+    this.toggleSignInModalWindow = this.toggleSignInModalWindow.bind(this);
+    this.showBuyModalWindow = this.showBuyModalWindow.bind(this);
+    this.toggleBuyModalWindow = this.toggleBuyModalWindow.bind(this);
   }
 
   handleSignedIn(user) {
     this.setState({
       user: user
     });
+  }
+
+  showSignInModalWindow(){
+    const state = this.state;
+    const newState = Object.assign({},state,{showSignInModal:true});
+    this.setState(newState);
+  }
+
+  toggleSignInModalWindow() {
+    const state = this.state;
+    const newState = Object.assign({},state,{showSignInModal:!state.showSignInModal});
+    this.setState(newState);
+  }
+
+  
+  showBuyModalWindow(id,price){
+    const state = this.state;
+    const newState = Object.assign({},state,{showBuyModal:true,productid:id,price:price});
+    this.setState(newState);
+  }
+
+  toggleBuyModalWindow(){
+    const state = this.state;
+    const newState = Object.assign({},state,{showBuyModal:!state.showBuyModal});
+    this.setState(newState); 
   }
 
   componentDidMount() {
@@ -41,15 +70,15 @@ class App extends React.Component {
       <div>
         <Router>
           <div>
-            <Nav user={this.state.user} />
+            <Nav user={this.state.user} showModalWindow={this.showSignInModalWindow}/>
             <div className='container pt-4 mt-4'>
-              <Route exact path="/" render={() => <CardContainer location='cards.json' />} />
-              <Route path="/promos" render={() => <CardContainer location='promos.json' promo={true}/>} />
+              <Route exact path="/" render={() => <CardContainer location='cards.json' showBuyModal={this.showBuyModalWindow} />} />
+              <Route path="/promos" render={() => <CardContainer location='promos.json' promo={true} showBuyModal={this.showBuyModalWindow}/>} />
               {this.state.user.loggedin ? <Route path="/myorders" render={()=><Orders location='user.json'/>}/> : null}
               <Route path="/about" component={About} />
             </div>
-            <SignInModalWindow />
-            <BuyModalWindow />
+            <SignInModalWindow showModal={this.state.showSignInModal} toggle={this.toggleSignInModalWindow}/>
+            <BuyModalWindow showModal={this.state.showBuyModal} toggle={this.toggleBuyModalWindow} user={this.state.user.ID} productid={this.state.productid} price={this.state.price}/>
           </div>
         </Router>
       </div>
