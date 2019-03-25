@@ -2,7 +2,7 @@
     "id" : 1,
     "img" : "img/strings.png",
     "imgalt":"string",
-    "desc":"A very authentic and beutiful instrument!!",
+    "desc":"A very authentic and beautiful instrument!!",
     "price" : 100.0,
     "productname" : "Strings"
 }, {
@@ -16,7 +16,7 @@
     "id" : 3,
     "img" : "img/drums.jpg",
     "imgalt":"drums",
-    "desc":"A set of super awesome drums, combined with a guitar, they can product more than amazing music!!",
+    "desc":"A set of super awesome drums, combined with a guitar, they can produce more than amazing music!!",
     "price" : 17000.0,
     "productname" : "Drums"
 },{
