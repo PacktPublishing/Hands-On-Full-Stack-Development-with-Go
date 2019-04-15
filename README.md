@@ -1,6 +1,6 @@
 # Hands-On Full-Stack Development with Go
 
-<a href="https://www.packtpub.com/web-development/hands-full-stack-development-go?utm_source=github&utm_medium=repository&utm_campaign=9781789130751 "><img src="https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B10716_MockupCover.png" alt="Hands-On Full-Stack Development with Go" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/web-development/hands-full-stack-development-go?utm_source=github&utm_medium=repository&utm_campaign=9781789130751 "><img src="https://www.packtpub.com/sites/default/files/B10716_pub.png" alt="Hands-On Full-Stack Development with Go" height="256px" align="right"></a>
 
 This is the code repository for [Hands-On Full-Stack Development with Go](https://www.packtpub.com/web-development/hands-full-stack-development-go?utm_source=github&utm_medium=repository&utm_campaign=9781789130751), published by Packt.
 
