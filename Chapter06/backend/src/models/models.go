@@ -13,7 +13,7 @@ type Product struct {
 	ImagAlt     string  `json:"imgalt" gorm:"column:imgalt"`
 	Price       float64 `json:"price"`
 	Promotion   float64 `json:"promotion"` //sql.NullFloat64
-	PoructName  string  `gorm:"column:productname" json:"productname"`
+	ProductName string  `gorm:"column:productname" json:"productname"`
 	Description string
 }
 
