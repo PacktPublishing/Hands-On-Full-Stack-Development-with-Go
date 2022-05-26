@@ -1,3 +1,7 @@
+## [Get this title for $10 on Packt's Spring Sale](https://www.packt.com/B10716?utm_source=github&utm_medium=packt-github-repo&utm_campaign=spring_10_dollar_2022)
+-----
+For a limited period, all eBooks and Videos are only $10. All the practical content you need \- by developers, for developers
+
 # Hands-On Full-Stack Development with Go
 
 <a href="https://www.packtpub.com/web-development/hands-full-stack-development-go?utm_source=github&utm_medium=repository&utm_campaign=9781789130751 "><img src="https://www.packtpub.com/sites/default/files/B10716_pub.png" alt="Hands-On Full-Stack Development with Go" height="256px" align="right"></a>
