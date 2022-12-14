@@ -1,3 +1,15 @@
+
+### Get this product for $5
+
+<i>Packt is having its biggest sale of the year. Get this eBook or any other book, video, or course that you like just for $5 each</i>
+
+
+<b><p align='center'>[Buy now](https://packt.link/9781789130751)</p></b>
+
+
+<b><p align='center'>[Buy similar titles for just $5](https://subscription.packtpub.com/search)</p></b>
+
+
 # Hands-On Full-Stack Development with Go
 
 <a href="https://www.packtpub.com/web-development/hands-full-stack-development-go?utm_source=github&utm_medium=repository&utm_campaign=9781789130751 "><img src="https://www.packtpub.com/sites/default/files/B10716_pub.png" alt="Hands-On Full-Stack Development with Go" height="256px" align="right"></a>
